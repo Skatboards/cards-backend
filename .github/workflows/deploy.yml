@@ -26,6 +26,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install missing system dependency
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libatomic1
+    
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
